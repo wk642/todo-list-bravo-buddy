@@ -1,16 +1,20 @@
-# React + Vite
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Caveat+Brush&size=42&pause=1000&center=true&width=435&lines=Bravo+Buddy!)](https://git.io/typing-svg)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Ever feel like a todo list is just a list of chores? Why not make it fun and gamify it for all ages 
+### Created by Winnie Kelley
 
-Currently, two official plugins are available:
+### How to install this
+#### Prequisites 
+- have npm installed
+- suggested code editor: vscode
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+#### Installation instructions
+1. Clone this project git clone https://github.com/wk642/todo-list-bravo-buddy.git
+2. Open up the code in VsCode
+3. Open up terminal
+4. Run this: `npm install`
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#### How to run the development server
+1. In your terminal.
+2. Run this: `npm run dev`
+3. A localhost link should be availble. Eg. http://localhost:5173/ <- You'll be able to view the site here.
