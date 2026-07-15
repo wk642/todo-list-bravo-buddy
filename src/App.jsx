@@ -1,4 +1,5 @@
 import './App.css'
+import TodoList from './TodoList';
 
 function App() {
   // Adding array todoList with 3 empty objects
@@ -10,11 +11,8 @@ function App() {
   // keys are id and title
   return (
     <div>
-      <h1>My Todos</h1>
-      {/* create an unordered list */}
-      <ul>
-        {todoList.map(todo => <li key={todo.id}>{todo.title}</li>)}
-      </ul>
+      <h1>Todo List</h1>
+      <TodoList />
     </div>
   )
 }
