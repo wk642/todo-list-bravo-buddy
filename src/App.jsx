@@ -16,7 +16,7 @@ function App() {
     <div>
       <h1>Todo List</h1>
       <TodoForm />
-      <TodoList todoList = {todoList} />
+      <TodoList todoList = { todoList } />
     </div>
   )
 }
