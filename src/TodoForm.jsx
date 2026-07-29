@@ -6,10 +6,6 @@ function TodoForm({ onAddTodo }) {
   const handleAddTodo = (event) => {
     event.preventDefault();
 
-    console.log('Event object:', event);
-    console.log('Event target:', event.target);
-    console.log('Input value:', event.target.todoTitle.value);
-
     // .trim prevents whitespace only todos
     const todoTitle = event.target.todoTitle.value.trim();
     if (todoTitle && todoTitle !== "") {
