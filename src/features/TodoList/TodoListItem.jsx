@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { useEditableTitle } from "../../hooks/useEditableTitle";
 import TextInputWithLabel from "../../shared/TextInputWithLabel";
 import { isValidTodoTitle } from "../../utils/todoValidation";
 
 function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [workingTitle, setWorkingTitle] = useState(todo.title);
+  // const [isEditing, setIsEditing] = useState(false);
+  // const [workingTitle, setWorkingTitle] = useState(todo.title);
 
-  const handleCancel = () => {
-    setWorkingTitle(todo.title);
-    setIsEditing(false);
-  };
+  const {
+    isEditing,
+    workingTitle,
+    startEditing,
+    cancelEdit,
+    updateTitle,
+    finishEdit
+  } = useEditableTitle(todo.title);
+
+  const handleCancel = cancelEdit;
   
   const handleEdit = (event) => {
-    setWorkingTitle(event.target.value);
+    updateTitle(event.target.value);
   };
 
   const handleUpdate = (event) => {
@@ -21,13 +27,12 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
     }
   
     event.preventDefault();
+    const finalTitle = finishEdit();
   
     onUpdateTodo({
       ...todo,
-      title: workingTitle,
+      title: finalTitle,
     });
-  
-    setIsEditing(false);
   };
 
   return (
@@ -36,6 +41,8 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
         {isEditing ? (
           <>
             <TextInputWithLabel
+              elementId={`todoTitle${todo.id}`}
+              labelText="Edit todo"
               value={workingTitle}
               onChange={handleEdit}
             />
@@ -62,7 +69,9 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
                           onChange={() => onCompleteTodo(todo.id)}
                       />
                   </label>
-                  <span onClick={() => setIsEditing(true)}>{todo.title}</span>
+                  <span onClick={startEditing}>
+                    {todo.title}
+                  </span>
               </>
           )}
       </form>
