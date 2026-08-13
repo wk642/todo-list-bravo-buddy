@@ -1,6 +1,6 @@
 import { useEditableTitle } from "../../hooks/useEditableTitle.js";
 import TextInputWithLabel from "../../shared/TextInputWithLabel.jsx";
-import { isValidTodoTitle } from "../../utils/todoValidation.jsx";
+import { isValidTodoTitle } from "../../utils/todoValidation.js";
 
 function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
   // const [isEditing, setIsEditing] = useState(false);
