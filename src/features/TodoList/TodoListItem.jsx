@@ -1,4 +1,4 @@
-import { useEditableTitle } from "../../hooks/useEditableTitle.jsx";
+import { useEditableTitle } from "../../hooks/useEditableTitle.js";
 import TextInputWithLabel from "../../shared/TextInputWithLabel.jsx";
 import { isValidTodoTitle } from "../../utils/todoValidation.jsx";
 
@@ -43,7 +43,6 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
             <TextInputWithLabel
               elementId={`todoTitle${todo.id}`}
               labelText="Todo"
-              ref={inputRef}
               value={workingTitle}
               onChange={handleEdit}
             />
@@ -63,11 +62,11 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
         ) : (
               <>
                   <label>
-                      <input
-                          type="checkbox"
-                          id={`checkbox${todo.id}`}
-                          checked={todo.isCompleted}
-                          onChange={() => onCompleteTodo(todo.id)}
+                      <input 
+                        type="checkbox"
+                        id={`checkbox${todo.id}`}
+                        checked={todo.isCompleted}
+                        onChange={() => onCompleteTodo(todo.id)}
                       />
                   </label>
                   <span onClick={startEditing}>
