@@ -22,17 +22,14 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
   };
 
   const handleUpdate = (event) => {
-    if (!isEditing) {
-      return;
-    }
-  
     event.preventDefault();
-    const finalTitle = finishEdit();
-  
+
     onUpdateTodo({
       ...todo,
-      title: finalTitle,
+      title: workingTitle,
     });
+
+    finishEdit();
   };
 
   return (
@@ -52,8 +49,7 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
             </button>
 
             <button
-              type="button"
-              onClick={handleUpdate}
+              type="submit"
               disabled={!isValidTodoTitle(workingTitle)}
             >
               Update
@@ -69,7 +65,11 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo }) {
                         onChange={() => onCompleteTodo(todo.id)}
                       />
                   </label>
-                  <span onClick={startEditing}>
+                  <span
+                    onClick={() => {
+                      startEditing();
+                    }}
+                  >
                     {todo.title}
                   </span>
               </>
